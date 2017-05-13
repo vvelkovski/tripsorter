@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Trip Sorter</title>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="assets/vendor/bootsrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/dijkstra.js"></script>
+    <script type="text/javascript" src="assets/js/tripSorter.js"></script>
+
+    <link rel="stylesheet" href="assets/vendor/bootsrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/tripSorter.css">
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Trip sorter</h1>
+            <div class="col-sm-4">
+                <form>
+                    <div class="form-group">
+                        <label>From</label>
+                        <select id="fromCity" name="from" class="form-control">
+                            <option value="">Choose a city</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>To</label>
+                        <select id="toCity" name="to" class="form-control">
+                            <option value="">Choose a city</option>
+                        </select>
+                    </div>
+                    <div class="form-group btn-group tripTypeButtons" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="tripType" value="cheapest" autocomplete="off" checked> Cheapest
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="tripType" value="fastest" autocomplete="off"> Fastest
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <div class="alert alert-danger departingCityError hidden" role="alert">Please choose your departing city</div>
+                        <div class="alert alert-danger arrivingCityError hidden" role="alert">Please choose your arriving  city</div>
+                    </div>
+                    <button type="button" id="findTripPath" class="btn btn-success col-sm-6 btn-block">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                    </button>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <div id="sortedTrip"></div>
+                <button type="button" id="resetTripPath" class="hidden btn btn-success col-sm-6 btn-block">
+                    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Reset
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /.container -->
+</body>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        tripSorter();
+    });
+</script>
+</html>
